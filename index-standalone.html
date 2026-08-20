@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#F4F2EA" />
+  <title>Gartenly – Gartenassistent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
+  <style>
+:root{--bg:#f5f3ec;--card:#fffdf8;--ink:#18332a;--muted:#6f7d76;--line:#dfe5df;--green:#496f5a;--green2:#dce8de;--danger:#b14d45;--warn:#b17a2d;--shadow:0 12px 35px rgba(32,56,45,.10);font-family:'DM Sans',system-ui,-apple-system,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink)}button,input,select{font:inherit}.app-shell{max-width:520px;margin:0 auto;min-height:100dvh;padding-bottom:92px}.topbar{display:flex;justify-content:space-between;align-items:center;padding:24px 20px 14px}.eyebrow{margin:0 0 3px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}.topbar h1,.page-heading h2,.sheet-head h2{font-family:'Newsreader',Georgia,serif;margin:0;font-size:30px}.weather-pill{border:0;background:var(--card);border-radius:18px;padding:10px 12px;display:grid;grid-template-columns:auto auto;gap:0 7px;align-items:center;box-shadow:var(--shadow);color:var(--ink)}.weather-pill small{grid-column:1/3;color:var(--muted);font-size:10px}.screen{display:none;padding:0 16px 24px}.screen.active{display:block}.map-card,.settings-card,.eco-card,.task-card,.metric,.wide-action,.plant-card{background:var(--card);border:1px solid rgba(73,111,90,.08);box-shadow:var(--shadow)}.map-card{border-radius:28px;overflow:hidden}.map-toolbar{display:flex;gap:8px;padding:14px;overflow:auto}.chip{border:0;background:#edf1ec;color:#506159;border-radius:999px;padding:8px 12px;font-weight:700;font-size:12px}.chip.active{background:var(--ink);color:white}.garden-map{position:relative;height:410px;background:linear-gradient(135deg,#ced8c5,#e5ddcd);overflow:hidden}.garden-map.soil{background:linear-gradient(135deg,#d5c5ab,#e6d7bf)}.garden-map.water{background:linear-gradient(135deg,#cbdedb,#dbeae7)}.garden-map.fertilizer{background:linear-gradient(135deg,#d9d8ae,#e8e4bf)}.map-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.18) 1px,transparent 1px);background-size:32px 32px}.house-shape,.terrace-shape,.zone,.raised-bed,.pot,.plant{position:absolute}.house-shape{left:8%;top:8%;width:42%;height:28%;background:#d6d1c5;border-radius:16px;display:grid;place-items:center;color:#665f56}.terrace-shape{left:10%;bottom:7%;width:46%;height:18%;background:#c6b8a1;border-radius:14px;display:grid;place-items:center;color:#665f56}.zone{border:2px solid rgba(45,85,58,.45);background:rgba(177,204,169,.72);border-radius:40% 28% 36% 32%;color:var(--ink);padding:10px}.zone-a{right:8%;top:12%;width:40%;height:31%}.zone-b{right:9%;bottom:11%;width:33%;height:26%;background:rgba(187,194,142,.7)}.zone-label{display:block;font-weight:800}.zone-meta{font-size:11px}.raised-bed{left:39%;top:46%;width:32%;height:17%;border:3px solid #8d6845;background:#b78b5d;border-radius:9px;color:white}.pot{border:0;background:transparent;font-size:28px}.pot-1{left:8%;top:44%}.pot-2{left:18%;top:54%}.plant{width:32px;height:32px;border-radius:50%;border:2px solid white;background:#557d5e;color:white;box-shadow:0 5px 14px rgba(30,55,40,.22)}.plant-lav{right:18%;top:23%}.plant-hort{right:33%;top:32%;background:#7a668b}.plant-tom{right:18%;bottom:20%;background:#a75c4b}.plant-ros{left:54%;top:55%;background:#4f7250}.map-hint{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);background:rgba(255,255,255,.88);padding:8px 12px;border-radius:999px;font-size:11px;white-space:nowrap}.map-footer{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;font-size:12px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}.good{background:#5a8a64}.text-button,.inline-action{border:0;background:none;color:var(--green);font-weight:800}.section-block{margin-top:24px}.section-heading{display:flex;justify-content:space-between;align-items:end;margin:0 2px 12px}.section-heading h2{margin:0;font-size:22px}.page-heading{margin:14px 4px 18px}.task-list{display:grid;gap:10px}.task-card{display:grid;grid-template-columns:42px 1fr auto;gap:10px;padding:14px;border-radius:18px;align-items:start}.task-card p,.plant-card p,.eco-card p,.hero-status p{margin:3px 0 0;color:var(--muted);font-size:13px}.task-icon{width:38px;height:38px;border-radius:13px;background:#eef3ed;display:grid;place-items:center}.task-time{font-size:11px;color:var(--muted)}.muted{opacity:.7}.bottom-nav{position:fixed;z-index:20;left:50%;bottom:0;transform:translateX(-50%);width:min(520px,100%);height:78px;background:rgba(255,253,248,.96);backdrop-filter:blur(16px);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr 72px 1fr 1fr;align-items:center;padding:5px 10px env(safe-area-inset-bottom)}.nav-item{border:0;background:none;color:var(--muted);display:grid;place-items:center;gap:2px}.nav-item.active{color:var(--ink);font-weight:800}.nav-item span{font-size:21px}.nav-item small{font-size:10px}.fab{width:58px;height:58px;border:0;border-radius:50%;background:var(--ink);color:white;font-size:34px;box-shadow:0 10px 22px rgba(24,51,42,.25);justify-self:center;transform:translateY(-13px)}.hero-status{display:flex;gap:13px;padding:18px;border-radius:22px}.hero-icon{font-size:35px}.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0 24px}.metric{padding:14px;border-radius:18px;text-align:center;display:grid;gap:2px}.metric span{font-size:23px}.metric strong{font-size:22px}.metric small{color:var(--muted)}.subhead{margin:22px 4px 10px}.date-pill{background:#e5ebe3;padding:7px 10px;border-radius:999px;font-size:12px}.eco-card{display:flex;gap:15px;align-items:center;padding:18px;border-radius:22px}.eco-score{min-width:72px;height:72px;border-radius:50%;background:var(--green2);display:flex;align-items:center;justify-content:center}.eco-score span{font-size:28px;font-weight:800}.eco-score small{font-size:11px}.recommendations{display:grid;gap:10px}.plant-card{border-radius:18px;padding:12px;display:flex;gap:12px}.plant-thumb{width:52px;height:52px;border-radius:15px;background:#edf2e7;display:grid;place-items:center;font-size:28px}.score-row{display:flex;gap:7px;margin-top:8px}.score-row span{background:#edf3ec;padding:4px 7px;border-radius:999px;font-size:10px}.wide-action{width:100%;border-radius:18px;border:0;padding:14px;display:grid;grid-template-columns:36px 1fr auto;text-align:left;align-items:center;color:var(--ink)}.wide-action small{display:block;color:var(--muted);margin-top:2px}.settings-card{border-radius:22px;overflow:hidden}.settings-card button{width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;padding:15px;display:grid;grid-template-columns:35px 1fr auto;text-align:left;align-items:center;color:var(--ink)}.settings-card button:last-child{border-bottom:0}.settings-card small{display:block;color:var(--muted);margin-top:2px}.sheet-backdrop{position:fixed;inset:0;background:rgba(12,30,23,.38);z-index:30;opacity:0;pointer-events:none;transition:.2s}.sheet-backdrop.open{opacity:1;pointer-events:auto}.bottom-sheet{position:fixed;z-index:40;left:50%;bottom:0;transform:translate(-50%,110%);width:min(520px,100%);background:var(--card);border-radius:28px 28px 0 0;padding:8px 16px calc(22px + env(safe-area-inset-bottom));transition:.25s ease;max-height:82dvh;overflow:auto}.bottom-sheet.open{transform:translate(-50%,0)}.bottom-sheet.tall{min-height:58dvh}.sheet-handle{width:44px;height:5px;background:#d1d7d1;border-radius:99px;margin:2px auto 13px}.sheet-head{display:flex;justify-content:space-between;align-items:start;margin-bottom:14px}.sheet-head h2{font-size:25px}.close-btn{border:0;background:#edf0eb;width:36px;height:36px;border-radius:50%;font-size:22px}.action-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.action-tile{border:1px solid var(--line);background:#fafaf5;border-radius:18px;padding:16px;text-align:left;color:var(--ink);display:grid;gap:4px}.action-tile span{font-size:26px}.action-tile small{color:var(--muted)}.segmented{display:grid;grid-template-columns:repeat(3,1fr);background:#edf0eb;border-radius:14px;padding:4px;margin-bottom:14px}.segmented button{border:0;background:none;border-radius:10px;padding:9px;color:var(--muted);font-weight:700}.segmented button.active{background:white;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.06)}.plant-mode,.animal-mode{display:none}.plant-mode.active,.animal-mode.active{display:block}.searchbox{display:flex;gap:8px;align-items:center;background:#f0f2ee;border-radius:14px;padding:12px}.searchbox input{border:0;outline:0;background:transparent;width:100%;color:var(--ink)}.search-results{display:grid;gap:8px;margin-top:12px}.search-item{width:100%;border:1px solid var(--line);background:#fff;border-radius:15px;padding:12px;text-align:left}.search-item small{display:block;color:var(--muted);margin-top:3px}.empty-state{text-align:center;padding:28px 8px}.big-icon{font-size:44px;margin-bottom:10px}.empty-state p{color:var(--muted);max-width:340px;margin:8px auto 16px}.primary-btn{border:0;background:var(--ink);color:white;border-radius:14px;padding:12px 17px;font-weight:800}.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.detail-box{background:#f1f3ef;border-radius:16px;padding:13px}.detail-box small{display:block;color:var(--muted);margin-bottom:5px}.warning{margin-top:12px;padding:13px;border-radius:16px;background:#f6e8e5;color:#7e3630}.trait-form{display:grid;gap:12px}.trait-form label{display:grid;gap:5px;font-weight:700}.trait-form select{border:1px solid var(--line);border-radius:13px;background:white;padding:11px}.animal-example{margin-top:12px;padding:14px;border-radius:16px;background:#edf3ec}.animal-example p{margin:5px 0 0;color:var(--muted)}
+@media (min-width:700px){body{padding:24px 0}.app-shell{border-radius:32px;overflow:hidden;box-shadow:0 20px 60px rgba(30,50,40,.14);background:var(--bg);min-height:900px}.bottom-nav{position:sticky;transform:none;left:auto;margin-top:0}}
+
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Guten Morgen</p>
+        <h1>Mein Garten</h1>
+      </div>
+      <button class="weather-pill" id="weatherBtn" aria-label="Wetterdetails">
+        <span>☀️</span><strong>22°</strong><small>Berlin</small>
+      </button>
+    </header>
+
+    <main>
+      <section class="screen active" data-screen="garden">
+        <div class="map-card">
+          <div class="map-toolbar">
+            <button class="chip active" data-layer="garden">Garten</button>
+            <button class="chip" data-layer="soil">Boden</button>
+            <button class="chip" data-layer="water">Wasser</button>
+            <button class="chip" data-layer="fertilizer">Düngung</button>
+          </div>
+
+          <div class="garden-map" id="gardenMap">
+            <div class="map-grid"></div>
+            <div class="house-shape"><span>Haus</span></div>
+            <div class="terrace-shape"><span>Terrasse</span></div>
+
+            <button class="zone zone-a" data-zone="staudenbeet">
+              <span class="zone-label">Staudenbeet</span>
+              <span class="zone-meta">8,7 m²</span>
+            </button>
+            <button class="zone zone-b" data-zone="gemuese">
+              <span class="zone-label">Gemüsebeet</span>
+              <span class="zone-meta">5,2 m²</span>
+            </button>
+            <button class="raised-bed" data-zone="hochbeet"><span>Hochbeet</span></button>
+            <button class="pot pot-1" data-zone="topf"><span>🪴</span></button>
+            <button class="pot pot-2" data-zone="topf"><span>🪴</span></button>
+
+            <button class="plant plant-lav" data-plant="lavendel" title="Lavendel"><span>✿</span></button>
+            <button class="plant plant-hort" data-plant="hortensie" title="Hortensie"><span>✿</span></button>
+            <button class="plant plant-tom" data-plant="tomate" title="Tomate"><span>●</span></button>
+            <button class="plant plant-ros" data-plant="rosmarin" title="Rosmarin"><span>✦</span></button>
+
+            <div class="map-hint">Tippe auf Beet, Topf oder Pflanze</div>
+          </div>
+
+          <div class="map-footer">
+            <div><span class="dot good"></span> Standort insgesamt <strong>gut</strong></div>
+            <button class="text-button" id="editGardenBtn">Bearbeiten</button>
+          </div>
+        </div>
+
+        <section class="section-block">
+          <div class="section-heading">
+            <div><p class="eyebrow">Heute</p><h2>3 Dinge im Blick</h2></div>
+            <button class="text-button" data-nav="today">Alle</button>
+          </div>
+          <div class="task-list">
+            <article class="task-card"><div class="task-icon">💧</div><div><strong>Gemüsebeet gießen</strong><p>Trocken, heute kein Regen erwartet.</p></div><span class="task-time">Heute</span></article>
+            <article class="task-card"><div class="task-icon">🐌</div><div><strong>Schneckenrisiko erhöht</strong><p>Junger Salat und Dahlien kontrollieren.</p></div><span class="task-time">Abends</span></article>
+            <article class="task-card muted"><div class="task-icon">🌱</div><div><strong>Keine Düngung nötig</strong><p>Staudenbeet zuletzt vor 12 Tagen versorgt.</p></div><span class="task-time">✓</span></article>
+          </div>
+        </section>
+      </section>
+
+      <section class="screen" data-screen="today">
+        <div class="section-heading page-heading"><div><p class="eyebrow">Pflegeassistent</p><h2>Heute im Garten</h2></div><span class="date-pill">20. Aug</span></div>
+        <div class="hero-status"><div class="hero-icon">🌤️</div><div><strong>Ein ruhiger Gartentag</strong><p>Nur das Gemüsebeet braucht heute Wasser. Düngung kann warten.</p></div></div>
+        <div class="metric-grid">
+          <div class="metric"><span>💧</span><strong>1</strong><small>gießen</small></div>
+          <div class="metric"><span>✂️</span><strong>2</strong><small>Schnitte bald</small></div>
+          <div class="metric"><span>🌱</span><strong>0</strong><small>düngen</small></div>
+        </div>
+        <h3 class="subhead">Aufgaben</h3>
+        <div class="task-list">
+          <article class="task-card"><div class="task-icon">💧</div><div><strong>Gemüsebeet gießen</strong><p>Empfehlung: ca. 12–16 l für den Bereich.</p><button class="inline-action">Als erledigt markieren</button></div><span class="task-time">Heute</span></article>
+          <article class="task-card"><div class="task-icon">✂️</div><div><strong>Lavendel beobachten</strong><p>Der Sommerschnitt nähert sich. Noch 5–10 Tage warten.</p></div><span class="task-time">Bald</span></article>
+          <article class="task-card"><div class="task-icon">🐌</div><div><strong>Schnecken kontrollieren</strong><p>Feuchte Nacht erwartet; besonders Salat prüfen.</p></div><span class="task-time">Abends</span></article>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="discover">
+        <div class="section-heading page-heading"><div><p class="eyebrow">Garten verbessern</p><h2>Entdecken</h2></div></div>
+        <div class="eco-card">
+          <div class="eco-score"><span>78</span><small>/100</small></div>
+          <div><strong>Ökologiewert deines Gartens</strong><p>Sehr gute Sommerblüte. Im zeitigen Frühjahr fehlt noch Nahrung für Insekten.</p></div>
+        </div>
+        <h3 class="subhead">Passt gut zu deinem Garten</h3>
+        <div class="recommendations">
+          <article class="plant-card"><div class="plant-thumb">🌼</div><div><strong>Wiesen-Schlüsselblume</strong><p>heimisch · Halbschatten · frühe Blüte</p><div class="score-row"><span>Standort 94</span><span>Ökologie 91</span></div></div></article>
+          <article class="plant-card"><div class="plant-thumb">🌿</div><div><strong>Lungenkraut</strong><p>heimisch · Halbschatten · pflegeleicht</p><div class="score-row"><span>Standort 89</span><span>Ökologie 88</span></div></div></article>
+        </div>
+        <h3 class="subhead">Tier bestimmen</h3>
+        <button class="wide-action" id="identifyAnimalBtn"><span>🪲</span><div><strong>Tier oder Fraßspur bestimmen</strong><small>Foto, Name oder Merkmale wie Farbe & Größe</small></div><span>›</span></button>
+      </section>
+
+      <section class="screen" data-screen="profile">
+        <div class="section-heading page-heading"><div><p class="eyebrow">Einstellungen</p><h2>Mein Gartenprofil</h2></div></div>
+        <div class="settings-card">
+          <button><span>📍</span><div><strong>Gartenstandort</strong><small>Berlin · für Wetter, Karte & Bodendaten</small></div><span>›</span></button>
+          <button><span>🐱</span><div><strong>Sicherheitsprofil</strong><small>Katze aktiv · Kinderindex anzeigen</small></div><span>›</span></button>
+          <button><span>🐝</span><div><strong>Gartenziele</strong><small>heimisch · insektenfreundlich · pflegeleicht</small></div><span>›</span></button>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-nav="garden"><span>⌂</span><small>Garten</small></button>
+      <button class="nav-item" data-nav="today"><span>✓</span><small>Heute</small></button>
+      <button class="fab" id="addBtn" aria-label="Hinzufügen">+</button>
+      <button class="nav-item" data-nav="discover"><span>✦</span><small>Entdecken</small></button>
+      <button class="nav-item" data-nav="profile"><span>○</span><small>Profil</small></button>
+    </nav>
+  </div>
+
+  <div class="sheet-backdrop" id="backdrop"></div>
+  <section class="bottom-sheet" id="addSheet" aria-hidden="true">
+    <div class="sheet-handle"></div>
+    <div class="sheet-head"><div><p class="eyebrow">Hinzufügen</p><h2>Was möchtest du eintragen?</h2></div><button class="close-btn" data-close>×</button></div>
+    <div class="action-grid">
+      <button class="action-tile" data-add="plant"><span>🌿</span><strong>Pflanze</strong><small>Suchen, Foto oder unbekannt</small></button>
+      <button class="action-tile" data-add="bed"><span>▱</span><strong>Beet</strong><small>Fläche frei einzeichnen</small></button>
+      <button class="action-tile" data-add="raised"><span>▤</span><strong>Hochbeet</strong><small>Position & Maße</small></button>
+      <button class="action-tile" data-add="pot"><span>🪴</span><strong>Topf / Kübel</strong><small>Überall positionieren</small></button>
+      <button class="action-tile" data-add="animal"><span>🪲</span><strong>Tierfund</strong><small>Bestimmen & Nutzen verstehen</small></button>
+      <button class="action-tile" data-add="soil"><span>🧪</span><strong>Bodenaktion</strong><small>Dünger, Kompost, Sand …</small></button>
+    </div>
+  </section>
+
+  <section class="bottom-sheet tall" id="plantSheet" aria-hidden="true">
+    <div class="sheet-handle"></div>
+    <div class="sheet-head"><div><p class="eyebrow">Neue Pflanze</p><h2>Pflanze hinzufügen</h2></div><button class="close-btn" data-close>×</button></div>
+    <div class="segmented"><button class="active" data-plantmode="search">Suchen</button><button data-plantmode="photo">Foto</button><button data-plantmode="unknown">Unbekannt</button></div>
+    <div class="plant-mode active" data-mode="search">
+      <label class="searchbox"><span>⌕</span><input id="plantSearch" placeholder="z. B. Lavendel, Salvia, Hortensie" /></label>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+    <div class="plant-mode" data-mode="photo">
+      <div class="empty-state"><div class="big-icon">📷</div><strong>Pflanze fotografieren</strong><p>Die Erkennung schlägt Kandidaten vor. Du bestätigst anschließend die Art.</p><button class="primary-btn">Kamera öffnen</button></div>
+    </div>
+    <div class="plant-mode" data-mode="unknown">
+      <div class="empty-state"><div class="big-icon">?</div><strong>Unbekannte Pflanze speichern</strong><p>Position, Foto, Größe und Notizen bleiben erhalten. Die Bestimmung kannst du später ergänzen.</p><button class="primary-btn" id="addUnknownBtn">Als unbekannt eintragen</button></div>
+    </div>
+  </section>
+
+  <section class="bottom-sheet tall" id="detailSheet" aria-hidden="true">
+    <div class="sheet-handle"></div>
+    <div class="sheet-head"><div><p class="eyebrow" id="detailEyebrow">Pflanze</p><h2 id="detailTitle">Lavendel</h2></div><button class="close-btn" data-close>×</button></div>
+    <div id="detailContent"></div>
+  </section>
+
+  <section class="bottom-sheet tall" id="animalSheet" aria-hidden="true">
+    <div class="sheet-handle"></div>
+    <div class="sheet-head"><div><p class="eyebrow">Tier bestimmen</p><h2>Was hast du entdeckt?</h2></div><button class="close-btn" data-close>×</button></div>
+    <div class="segmented"><button class="active" data-animalmode="photo">Foto</button><button data-animalmode="name">Name</button><button data-animalmode="traits">Merkmale</button></div>
+    <div class="animal-mode active" data-animal-mode="photo"><div class="empty-state"><div class="big-icon">🪲</div><strong>Foto aufnehmen</strong><p>Auch Raupen, Schnecken, Asseln, Spinnen und andere Gartentiere.</p><button class="primary-btn">Kamera öffnen</button></div></div>
+    <div class="animal-mode" data-animal-mode="name"><label class="searchbox"><span>⌕</span><input placeholder="z. B. Wespe, Assel, Engerling" /></label><div class="animal-example"><strong>Beispiel: Wespe</strong><p>Ökologische Rolle: Räuber & Bestäuber. Viele Arten helfen dabei, Fliegen, Raupen und Blattläuse zu regulieren.</p></div></div>
+    <div class="animal-mode" data-animal-mode="traits">
+      <div class="trait-form">
+        <label>Größe<select><option>unter 5 mm</option><option>5–15 mm</option><option>1,5–3 cm</option><option>über 3 cm</option></select></label>
+        <label>Farbe<select><option>schwarz / dunkel</option><option>grün</option><option>braun</option><option>gelb-schwarz</option><option>rot / orange</option><option>weiß / hell</option></select></label>
+        <label>Körperform<select><option>Käferartig</option><option>Raupe / wurmartig</option><option>Asselartig</option><option>Spinne</option><option>Fliege / Wespe / Biene</option><option>Schnecke</option></select></label>
+        <label>Gefunden an<select><option>Blatt</option><option>Boden</option><option>Blüte</option><option>Stamm / Holz</option><option>Topf / Kompost</option></select></label>
+        <button class="primary-btn">Mögliche Tiere anzeigen</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+const qs=(s,r=document)=>r.querySelector(s), qsa=(s,r=document)=>[...r.querySelectorAll(s)];
+const backdrop=qs('#backdrop'); const sheets=qsa('.bottom-sheet');
+function openSheet(id){sheets.forEach(s=>s.classList.remove('open')); backdrop.classList.add('open'); qs(id).classList.add('open'); qs(id).setAttribute('aria-hidden','false')}
+function closeSheets(){sheets.forEach(s=>{s.classList.remove('open');s.setAttribute('aria-hidden','true')});backdrop.classList.remove('open')}
+backdrop.addEventListener('click',closeSheets); qsa('[data-close]').forEach(b=>b.addEventListener('click',closeSheets));
+qsa('[data-nav]').forEach(b=>b.addEventListener('click',()=>{const name=b.dataset.nav;qsa('.screen').forEach(s=>s.classList.toggle('active',s.dataset.screen===name));qsa('.nav-item').forEach(n=>n.classList.toggle('active',n.dataset.nav===name));scrollTo({top:0,behavior:'smooth'})}));
+qs('#addBtn').addEventListener('click',()=>openSheet('#addSheet'));
+qs('#identifyAnimalBtn').addEventListener('click',()=>openSheet('#animalSheet'));
+qsa('[data-add]').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.add;if(t==='plant')openSheet('#plantSheet');else if(t==='animal')openSheet('#animalSheet');else{openSheet('#detailSheet');qs('#detailEyebrow').textContent='Neues Element';qs('#detailTitle').textContent={bed:'Beet zeichnen',raised:'Hochbeet platzieren',pot:'Topf / Kübel',soil:'Bodenaktion'}[t]||'Hinzufügen';qs('#detailContent').innerHTML=`<div class="empty-state"><div class="big-icon">${t==='bed'?'▱':t==='raised'?'▤':t==='pot'?'🪴':'🧪'}</div><strong>Im nächsten Schritt interaktiv</strong><p>Dieser Prototyp zeigt bereits den vorgesehenen Ablauf. Die echte Karte und Zeichenfunktion schließen wir als nächstes an.</p><button class="primary-btn" onclick="closeSheets()">Verstanden</button></div>`}}));
+qsa('[data-layer]').forEach(b=>b.addEventListener('click',()=>{qsa('[data-layer]').forEach(x=>x.classList.remove('active'));b.classList.add('active');const map=qs('#gardenMap');map.className='garden-map '+(b.dataset.layer==='garden'?'':b.dataset.layer)}));
+const plants={
+ lavendel:{title:'Echter Lavendel',latin:'Lavandula angustifolia',site:92,eco:81,status:'nicht heimisch · nicht invasiv',size:'45 cm',max:'60–80 cm',cat:'B – geringes Risiko',child:'B – geringes Risiko',care:'Trockenheitsverträglich. Sommerschnitt nach der Hauptblüte.'},
+ hortensie:{title:'Hortensie',latin:'Hydrangea macrophylla',site:68,eco:35,status:'nicht heimisch',size:'85 cm',max:'120–180 cm',cat:'C – giftig',child:'C – giftig',care:'Gleichmäßig feucht halten, pralle Mittagssonne vermeiden.'},
+ tomate:{title:'Tomate',latin:'Solanum lycopersicum',site:88,eco:28,status:'Kulturpflanze · nicht invasiv',size:'110 cm',max:'150–220 cm',cat:'C – grüne Pflanzenteile giftig',child:'C – grüne Pflanzenteile giftig',care:'Hoher Wasser- und Nährstoffbedarf; Blätter möglichst trocken halten.'},
+ rosmarin:{title:'Rosmarin',latin:'Salvia rosmarinus',site:90,eco:74,status:'nicht heimisch · mediterran',size:'35 cm',max:'80–150 cm',cat:'A – i.d.R. unbedenklich',child:'A – i.d.R. unbedenklich',care:'Sonnig, durchlässig, sparsam gießen.'}
+};
+function showPlant(p){const d=plants[p];if(!d)return;qs('#detailEyebrow').textContent=d.latin;qs('#detailTitle').textContent=d.title;qs('#detailContent').innerHTML=`<div class="detail-grid"><div class="detail-box"><small>Standort</small><strong>${d.site}/100</strong></div><div class="detail-box"><small>Ökologiewert</small><strong>${d.eco}/100</strong></div><div class="detail-box"><small>Herkunft & Status</small><strong>${d.status}</strong></div><div class="detail-box"><small>Größe jetzt / max.</small><strong>${d.size} / ${d.max}</strong></div><div class="detail-box"><small>🐱 Katzenindex</small><strong>${d.cat}</strong></div><div class="detail-box"><small>👶 Kinderindex</small><strong>${d.child}</strong></div></div><div class="animal-example"><strong>Pflegehinweis</strong><p>${d.care}</p></div><div class="warning">Sicherheits- und Pflegedaten sind im Prototyp Beispieldaten und werden später aus geprüften Quellen gespeist.</div>`;openSheet('#detailSheet')}
+qsa('[data-plant]').forEach(b=>b.addEventListener('click',()=>showPlant(b.dataset.plant)));
+qsa('[data-zone]').forEach(b=>b.addEventListener('click',()=>{const z=b.dataset.zone;qs('#detailEyebrow').textContent='Gartenbereich';qs('#detailTitle').textContent={staudenbeet:'Staudenbeet',gemuese:'Gemüsebeet',hochbeet:'Hochbeet',topf:'Topf / Kübel'}[z]||z;qs('#detailContent').innerHTML=`<div class="detail-grid"><div class="detail-box"><small>Boden</small><strong>${z==='gemuese'?'humos · nährstoffreich':'lehmig-humos'}</strong></div><div class="detail-box"><small>Licht</small><strong>${z==='staudenbeet'?'Halbschatten':'Sonne'}</strong></div><div class="detail-box"><small>Letzte Düngung</small><strong>${z==='gemuese'?'vor 24 Tagen':'vor 12 Tagen'}</strong></div><div class="detail-box"><small>Wasser</small><strong>${z==='gemuese'?'heute empfohlen':'ausreichend'}</strong></div></div><div class="animal-example"><strong>Bodenhistorie</strong><p>12.03. Kompost · 18.04. organischer Dünger · 14.05. Mulch</p></div>`;openSheet('#detailSheet')}));
+const catalog=[['Echter Lavendel','Lavandula angustifolia','lavendel'],['Hortensie','Hydrangea macrophylla','hortensie'],['Tomate','Solanum lycopersicum','tomate'],['Rosmarin','Salvia rosmarinus','rosmarin'],['Wiesen-Schlüsselblume','Primula veris',null],['Lungenkraut','Pulmonaria officinalis',null]];
+function renderSearch(q=''){const box=qs('#searchResults');const list=catalog.filter(x=>(x[0]+' '+x[1]).toLowerCase().includes(q.toLowerCase()));box.innerHTML=list.map(x=>`<button class="search-item" data-result="${x[2]||''}"><strong>${x[0]}</strong><small>${x[1]}</small></button>`).join('')||'<div class="empty-state"><strong>Nichts gefunden</strong><p>Du kannst die Pflanze auch als unbekannt speichern.</p></div>';qsa('[data-result]',box).forEach(b=>b.addEventListener('click',()=>{if(b.dataset.result)showPlant(b.dataset.result);else alert('Für diese Demo ist noch kein vollständiges Profil hinterlegt.')}))}
+renderSearch();qs('#plantSearch').addEventListener('input',e=>renderSearch(e.target.value));
+qsa('[data-plantmode]').forEach(b=>b.addEventListener('click',()=>{qsa('[data-plantmode]').forEach(x=>x.classList.toggle('active',x===b));qsa('.plant-mode').forEach(m=>m.classList.toggle('active',m.dataset.mode===b.dataset.plantmode))}));
+qsa('[data-animalmode]').forEach(b=>b.addEventListener('click',()=>{qsa('[data-animalmode]').forEach(x=>x.classList.toggle('active',x===b));qsa('.animal-mode').forEach(m=>m.classList.toggle('active',m.dataset.animalMode===b.dataset.animalmode))}));
+qs('#addUnknownBtn').addEventListener('click',()=>{qs('#detailEyebrow').textContent='Unbekannte Pflanze';qs('#detailTitle').textContent='Neue Pflanze';qs('#detailContent').innerHTML='<div class="empty-state"><div class="big-icon">🌱</div><strong>Unbekannte Pflanze angelegt</strong><p>Foto, Standort, Größe und Notizen könnten hier gespeichert werden. Die Art lässt sich später ergänzen.</p></div>';openSheet('#detailSheet')});
+qs('#editGardenBtn').addEventListener('click',()=>{qs('#detailEyebrow').textContent='Garten bearbeiten';qs('#detailTitle').textContent='Karte & Bereiche';qs('#detailContent').innerHTML='<div class="empty-state"><div class="big-icon">🗺️</div><strong>Satellitenkarte folgt</strong><p>Hier werden Grundstücksgrenze, freie Beet-Polygone sowie verschiebbare Hochbeete, Töpfe und Pflanzen bearbeitet.</p></div>';openSheet('#detailSheet')});
+
+  </script>
+</body>
+</html>
